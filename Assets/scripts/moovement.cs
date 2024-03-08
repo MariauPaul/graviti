@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -14,7 +15,7 @@ public class moovement : MonoBehaviour
     [SerializeField] private float dashForce;
     [SerializeField] private bool isGrounded;
     [SerializeField] private Transform bras;
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] private Rigidbody rb; 
     private bool isJumping;
 
     [SerializeField] private Transform footR;
@@ -44,6 +45,7 @@ public class moovement : MonoBehaviour
             rb.velocity = new Vector2(speed, rb.velocity.y);
         }
         if (Input.GetKeyUp(KeyCode.A)) {
+            
             rb.velocity = Vector3.zero;
         }
         if (Input.GetKeyUp(KeyCode.D)) {
@@ -80,6 +82,7 @@ public class moovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         
         if (Input.GetKeyDown(KeyCode.F) && isGrounded)
         {
             // Inverser l'état de la gravité
