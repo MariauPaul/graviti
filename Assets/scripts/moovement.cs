@@ -62,7 +62,7 @@ public class moovement : MonoBehaviour
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, 0);
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-            //Debug.Log("Jump");
+            //Debug.Log("Jump"); pour les petites bites les debugs
             isJumping = false;
         }
     }
@@ -81,7 +81,8 @@ public class moovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         
+        Debug.Log("Je suis Paul la petit pute");
+
         if (Input.GetKeyDown(KeyCode.F) && isGrounded)
         {
             // Inverser l'état de la gravité
@@ -91,7 +92,8 @@ public class moovement : MonoBehaviour
             InverserLaGravite();
         }
 
-        //Debug.DrawRay(footR.position, Vector3.down * 0.1f, Color.red);
+
+        //Debug.DrawRay(footR.position, Vector3.down * 0.1f, Color.red); c'est pour les salopes
 
         MovementPlayer();
 
@@ -99,6 +101,11 @@ public class moovement : MonoBehaviour
         {
             prendre();
         }
+    }
+
+    private void FixedUpdate()
+    {
+      
     }
 
     void InverserLaGravite()
@@ -110,7 +117,6 @@ public class moovement : MonoBehaviour
         if(graviteInverse)
         {
             transform.Translate(new Vector3(0, -2f, 0));
-            
         }
         else
         {
@@ -127,7 +133,7 @@ public class moovement : MonoBehaviour
         {
 
             if (hit.collider.tag == "Attrape")
-            {
+            { // Bite
                 hit.collider.transform.position = bras.position;
                 hit.collider.GetComponent<Rigidbody>().useGravity = false;
                 hit.collider.GetComponent<Rigidbody>().drag = 10;
