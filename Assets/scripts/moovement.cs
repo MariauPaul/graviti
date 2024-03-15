@@ -9,6 +9,9 @@ public class moovement : MonoBehaviour
     private Vector3 makemedash;
     private Vector3 jump;
 
+    [SerializeField] float dragForce;
+    private Vector2 currentVel;
+
     [SerializeField] private float speed;
     [SerializeField] private float jumpHeight;
     [SerializeField] private float dashForce;
@@ -22,19 +25,59 @@ public class moovement : MonoBehaviour
 
 
     private bool graviteInverse = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
 
+    void Start()
+    {
+        jump = Vector3.up * jumpHeight * Time.deltaTime;
+        positionChange = new Vector3(speed * Time.deltaTime, 0, 0);
+    }
+
+    void Update()
+    {
+        isGrounded = Physics.Raycast(footR.position, graviteInverse ? Vector3.up : Vector3.down, 0.1f);
+
+        if (Input.GetKeyDown(KeyCode.F) && isGrounded)
+        {
+            // Inverser l'état de la gravité
+            graviteInverse = !graviteInverse;
+
+            // Appeler la fonction pour inverser la gravité
+            InverserLaGravite();
+        }
+
+        //Debug.DrawRay(footR.position, Vector3.down * 0.1f, Color.red);
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            prendre();
+        }
+
+        GroundDrag();
+    }
+
+    private void FixedUpdate()
+    {
+        MovementPlayer();
+        SpeedVel();
     }
 
     void MovementPlayer()
     {
-        isGrounded = Physics.Raycast(footR.position, graviteInverse ? Vector3.up : Vector3.down, 0.1f);
-
-        // ---------- Movement ----------
-
+            // ---------- Movement ----------
         if (Input.GetKey(KeyCode.A))
+        {
+            rb.AddForce(new Vector2(-1, 0) * speed * 10 * Time.deltaTime, ForceMode.Force) ;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            rb.AddForce(new Vector2(1, 0) * speed * 10 * Time.deltaTime, ForceMode.Force);
+        }
+        /*if (Input.GetKey(KeyCode.A))
         {
             rb.velocity = new Vector2(-speed, rb.velocity.y);
         }
@@ -49,12 +92,11 @@ public class moovement : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.D)) {
             rb.velocity = Vector3.zero;
-        }
+        }*/
 
+        // ---------- Jump ----------
 
-            // ---------- Jump ----------
-
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
             isJumping = true;
         }
 
@@ -67,45 +109,23 @@ public class moovement : MonoBehaviour
         }
     }
 
-
-        
-
-
-    void Start()
+    private void GroundDrag()
     {
-
-        jump = Vector3.up * jumpHeight * Time.deltaTime;
-        positionChange = new Vector3(speed * Time.deltaTime, 0, 0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log("Je suis Paul la petit pute");
-
-        if (Input.GetKeyDown(KeyCode.F) && isGrounded)
+        if (!isGrounded)
         {
-            // Inverser l'état de la gravité
-            graviteInverse = !graviteInverse;
-
-            // Appeler la fonction pour inverser la gravité
-            InverserLaGravite();
+            rb.drag = 0;
         }
-
-
-        //Debug.DrawRay(footR.position, Vector3.down * 0.1f, Color.red); c'est pour les salopes
-
-        MovementPlayer();
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            prendre();
-        }
+        else rb.drag = dragForce;
     }
-
-    private void FixedUpdate()
-    {
-      
+    
+    private void SpeedVel()
+    { 
+        currentVel = new Vector2(rb.velocity.x, 0f);
+        if (currentVel.magnitude > speed)
+        {
+            Vector2 limitVel = currentVel.normalized * speed;
+            rb.velocity = new Vector2(limitVel.x, 0);
+        }
     }
 
     void InverserLaGravite()
@@ -122,7 +142,6 @@ public class moovement : MonoBehaviour
         {
             transform.Translate(new Vector3(0, -2f, 0));
         }
-
     }
 
     void prendre()
@@ -131,9 +150,8 @@ public class moovement : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.left, out hit, 1.5f))
 
         {
-
             if (hit.collider.tag == "Attrape")
-            { // Bite
+            {
                 hit.collider.transform.position = bras.position;
                 hit.collider.GetComponent<Rigidbody>().useGravity = false;
                 hit.collider.GetComponent<Rigidbody>().drag = 10;
@@ -141,7 +159,6 @@ public class moovement : MonoBehaviour
                 hit.collider.GetComponent<Collider>().isTrigger = true;
                 hit.collider.transform.parent = bras.transform;
             }
-
         }
     }
 }
