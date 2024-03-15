@@ -71,11 +71,11 @@ public class moovement : MonoBehaviour
             // ---------- Movement ----------
         if (Input.GetKey(KeyCode.A))
         {
-            rb.AddForce(new Vector2(-1, 0) * speed * 10 * Time.deltaTime, ForceMode.Force) ;
+            rb.AddForce(new Vector2(-1, 0) * speed * 100 * Time.deltaTime, ForceMode.Force) ;
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            rb.AddForce(new Vector2(1, 0) * speed * 10 * Time.deltaTime, ForceMode.Force);
+            rb.AddForce(new Vector2(1, 0) * speed * 100 * Time.deltaTime, ForceMode.Force);
         }
         /*if (Input.GetKey(KeyCode.A))
         {
@@ -104,7 +104,7 @@ public class moovement : MonoBehaviour
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, 0);
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-            //Debug.Log("Jump"); pour les petites bites les debugs
+        
             isJumping = false;
         }
     }
