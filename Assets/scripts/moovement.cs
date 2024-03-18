@@ -57,7 +57,7 @@ public class moovement : MonoBehaviour
             prendre();
         }
 
-        GroundDrag();
+        rb.drag = dragForce;
     }
 
     private void FixedUpdate()
@@ -71,11 +71,11 @@ public class moovement : MonoBehaviour
             // ---------- Movement ----------
         if (Input.GetKey(KeyCode.A))
         {
-            rb.AddForce(new Vector2(-1, 0) * speed * 100 * Time.deltaTime, ForceMode.Force) ;
+            rb.AddForce(new Vector2(-1, 0) * speed * 80 * Time.deltaTime, ForceMode.Force) ;
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            rb.AddForce(new Vector2(1, 0) * speed * 100 * Time.deltaTime, ForceMode.Force);
+            rb.AddForce(new Vector2(1, 0) * speed * 80 * Time.deltaTime, ForceMode.Force);
         }
         /*if (Input.GetKey(KeyCode.A))
         {
@@ -107,15 +107,6 @@ public class moovement : MonoBehaviour
         
             isJumping = false;
         }
-    }
-
-    private void GroundDrag()
-    {
-        if (!isGrounded)
-        {
-            rb.drag = 0;
-        }
-        else rb.drag = dragForce;
     }
     
     private void SpeedVel()
