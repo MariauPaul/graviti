@@ -7,7 +7,7 @@ public class camerablend : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera Room;
     [SerializeField] private CinemachineVirtualCamera player;
-    [SerializeField]  bool CheckCam =true;
+    [SerializeField]  static bool CheckCam = true;
     // Start is called before the first frame update
     void Start()
     {
