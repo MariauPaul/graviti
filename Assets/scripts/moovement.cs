@@ -10,6 +10,7 @@ public class moovement : MonoBehaviour
     private Vector3 jump;
 
     [SerializeField] float dragForce;
+    private bool gravityIsSwitching = false;
     private Vector2 currentVel;
 
     [SerializeField] private float speed;
@@ -39,12 +40,12 @@ public class moovement : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(rb.drag);
         isGrounded = Physics.Raycast(footR.position, graviteInverse ? Vector3.up : Vector3.down, 0.1f);
 
         if (Input.GetKeyDown(KeyCode.F) && isGrounded)
         {
-            // Inverser l'état de la gravité
-            graviteInverse = !graviteInverse;
+            
 
             // Appeler la fonction pour inverser la gravité
             InverserLaGravite();
@@ -57,7 +58,11 @@ public class moovement : MonoBehaviour
             prendre();
         }
 
-        rb.drag = dragForce;
+        if (isGrounded)
+        {
+            rb.drag = dragForce;
+        }
+        
     }
 
     private void FixedUpdate()
@@ -123,9 +128,19 @@ public class moovement : MonoBehaviour
     {
         jumpHeight = -jumpHeight;
 
+        // Inverser l'état de la gravité
+        graviteInverse = !graviteInverse;
+
         Physics.gravity = graviteInverse ? new Vector3(0, 9.81f, 0) : new Vector3(0, -9.81f, 0);
+        //Debug.Log(gravityIsSwitching + "before");
         transform.localRotation = graviteInverse ? Quaternion.Euler(0, -270, 180) : Quaternion.Euler(0, 90, 0);
-        if(graviteInverse)
+
+        //gravityIsSwitching = true;
+        //Debug.Log(gravityIsSwitching);
+        //rb.drag *= -1;
+        //StartCoroutine(GravitySwitching());
+
+        if (graviteInverse)
         {
             transform.Translate(new Vector3(0, -2f, 0));
         }
@@ -152,4 +167,10 @@ public class moovement : MonoBehaviour
             }
         }
     }
+
+    /*IEnumerator GravitySwitching()
+    {
+        yield return new WaitForSeconds(0.2f);
+        gravityIsSwitching = false;
+    }*/
 }

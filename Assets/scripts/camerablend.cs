@@ -17,7 +17,7 @@ public class camerablend : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("CheckCam" + CheckCam);
+
     }
     private void ShowOverheadView() {
        player.enabled = false;
