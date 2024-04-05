@@ -6,6 +6,7 @@ TagManager:
   tags:
   - New tag
   - Attrape
+  - Butoon
   layers:
   - Default
   - TransparentFX

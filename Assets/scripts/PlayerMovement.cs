@@ -36,9 +36,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Gravity")]
     [SerializeField] bool isGravInvert = false;
     [SerializeField] float switchGravCd;
-    [SerializeField] Quaternion rotation;
-    [SerializeField] GameObject Player_1;
-    [SerializeField] GameObject Player_2;
+    // [SerializeField] Quaternion rotation;
 
     private bool canSwitchGrav = true;
 
@@ -47,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask iAmGround;
     [SerializeField] Transform footR;
     [SerializeField] Transform grabPos;
-    [SerializeField] GameObject Player;
+    // [SerializeField] GameObject Player;
 
     private GameObject itemGrab;
     private bool handFull = false;
@@ -65,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         Grounded();
         CheckJumpCancel();
         Rotate();
+        Debug.Log(Physics.gravity);
     }
     private void FixedUpdate()
     {
@@ -96,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Grounded()
     {
-        isGrounded = Physics.Raycast(footR.position, isGravInvert ? Vector3.up : Vector3.down, 0.1f, iAmGround);
+        isGrounded = Physics.Raycast(footR.position, isGravInvert ? Vector3.up : Vector3.down, 0.1f/*, iAmGround*/);
 
         if (isGrounded)
         {
@@ -110,11 +109,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!isGravInvert && rb.velocity.y < -0.01)
             {
-                rb.drag = Mathf.MoveTowards(rb.drag, maxDrag * -1, 0.08f);
+                rb.drag = Mathf.MoveTowards(rb.drag, maxDrag * -1, 0.15f);
             }
             else if(isGravInvert && rb.velocity.y > 0.01)
             {
-                rb.drag = Mathf.MoveTowards(rb.drag, maxDrag * -1, 0.08f);
+                rb.drag = Mathf.MoveTowards(rb.drag, maxDrag * -1, 0.15f);
             }
         }
     }
@@ -228,6 +227,7 @@ public class PlayerMovement : MonoBehaviour
             itemGrab.GetComponent<Rigidbody>().drag = 10;
             itemGrab.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             itemGrab.GetComponent<Collider>().isTrigger = false;
+            //itemGrab.GetComponent<Rigidbody>().AddForce(GetComponent.x, 2,ForceMode.Force);
             itemGrab = null;
         }
         else
@@ -240,14 +240,23 @@ public class PlayerMovement : MonoBehaviour
                 {
                     handFull= true;
                     itemGrab = hit.collider.gameObject;
-                    hit.collider.transform.position = grabPos.position;
-                    hit.collider.GetComponent<Rigidbody>().useGravity = false;
-                    hit.collider.GetComponent<Rigidbody>().drag = 10;
-                    hit.collider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                    hit.collider.GetComponent<Collider>().isTrigger = true;
+                    itemGrab.transform.position = grabPos.position;
+                    itemGrab.GetComponent<Rigidbody>().useGravity = false;
+                    itemGrab.GetComponent<Rigidbody>().drag = 0;
+                    itemGrab.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                    itemGrab.GetComponent<Collider>().isTrigger = true;
                     itemGrab.transform.parent = grabPos.transform;
                 }
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Attrape")
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            rb.drag = 1;
         }
     }
 }

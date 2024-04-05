@@ -604,7 +604,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696732713}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -621,8 +621,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 8
+  m_CollisionDetection: 1
 --- !u!65 &696732715
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -907,20 +907,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639ae4e6b8e185d44bea47a0dfc18741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 5
   groundDrag: 3
   airDrag: 2.5
   airMultiplier: 0.8
   isGrounded: 1
-  jumpCd: 0.2
+  jumpCd: 0.1
   jumpHeight: 10
   jumpButtonMaxPressTime: 0.3
-  maxDrag: 12
+  maxDrag: 6
   isGravInvert: 0
   switchGravCd: 0.2
-  rotation: {x: 0, y: 0, z: 0, w: 0}
-  Player_1: {fileID: 0}
-  Player_2: {fileID: 0}
   iAmCelling:
     serializedVersion: 2
     m_Bits: 2048
@@ -929,7 +926,6 @@ MonoBehaviour:
     m_Bits: 1024
   footR: {fileID: 775037198}
   grabPos: {fileID: 55012311}
-  Player: {fileID: 0}
 --- !u!54 &1206437574
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -974,6 +970,43 @@ Transform:
   - {fileID: 274821790}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1252767466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252767467}
+  m_Layer: 0
+  m_Name: PressureButton
+  m_TagString: Butoon
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1252767467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252767466}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.940049, y: 0.0072332323, z: -5.717468}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1390401801}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1390401801 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
+  m_PrefabInstance: {fileID: 7400279278704270215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1601818720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,9 +1135,6 @@ MonoBehaviour:
   maxDrag: 0
   isGravInvert: 0
   switchGravCd: 0
-  rotation: {x: 0, y: 0, z: 0, w: 0}
-  Player_1: {fileID: 0}
-  Player_2: {fileID: 0}
   iAmCelling:
     serializedVersion: 2
     m_Bits: 2048
@@ -1113,7 +1143,6 @@ MonoBehaviour:
     m_Bits: 1024
   footR: {fileID: 1707997451}
   grabPos: {fileID: 1707997452}
-  Player: {fileID: 0}
 --- !u!4 &1707997451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 658076114928277416, guid: 9f387c99bc8b1f74f982e6488e1c3a45, type: 3}
@@ -1279,6 +1308,71 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1001 &7400279278704270215
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1252767467}
+    m_Modifications:
+    - target: {fileID: 2897115222203119571, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
+      propertyPath: m_TagString
+      value: Butoon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.376359
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.3002331
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.717468
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081529736814482430, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
+      propertyPath: m_Name
+      value: touchepad2prt
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911645820040902811, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
+      propertyPath: m_TagString
+      value: Butoon
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1291,3 +1385,4 @@ SceneRoots:
   - {fileID: 696732718}
   - {fileID: 1601818721}
   - {fileID: 1206437575}
+  - {fileID: 1252767467}
