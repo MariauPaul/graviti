@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask iAmGround;
     [SerializeField] Transform footR;
     [SerializeField] Transform grabPos;
+    [SerializeField] Transform grabRayCast;
     // [SerializeField] GameObject Player;
 
     private GameObject itemGrab;
@@ -233,7 +234,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.right, out hit, 1.5f))
+            if (Physics.Raycast(grabRayCast.position, Vector3.right, out hit, 1.5f))
 
             {
                 if (hit.collider.tag == "Attrape")

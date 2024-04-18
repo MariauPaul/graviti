@@ -14957,6 +14957,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5695e0d095fbf354cb1ffdc8f1adf200, type: 3}
   m_PrefabInstance: {fileID: 1797136086}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &465517073
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 237421551702626494, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -60.506855
+      objectReference: {fileID: 0}
+    - target: {fileID: 237421551702626494, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.0018542
+      objectReference: {fileID: 0}
+    - target: {fileID: 237421551702626494, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.673984
+      objectReference: {fileID: 0}
+    - target: {fileID: 237421551702626494, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 237421551702626494, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 237421551702626494, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 237421551702626494, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 237421551702626494, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 237421551702626494, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 237421551702626494, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 576463890606449232, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537687203987281918, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.9163063
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760074674387275565, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570849511760258616, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
+      propertyPath: speed
+      value: 3.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9cb3eb8c060b64e4c9e79a502e14a341, type: 3}
 --- !u!1001 &467061038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16320,6 +16389,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: android_texture
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 77809a10a91c7cf47bc65b70686cca02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1024671263873212986, guid: 77809a10a91c7cf47bc65b70686cca02, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -16475,6 +16548,7 @@ MonoBehaviour:
     m_Bits: 0
   footR: {fileID: 0}
   grabPos: {fileID: 0}
+  grabRayCast: {fileID: 0}
 --- !u!1001 &508041687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52693,11 +52767,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.2
-  far clip plane: 1000
-  field of view: 15
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 60.000004
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -52722,7 +52796,7 @@ Transform:
   m_GameObject: {fileID: 1599524942}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.7806244, y: -1.784822, z: -21.323128}
+  m_LocalPosition: {x: -76.706856, y: -1.0467691, z: -14.626431}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75344,3 +75418,4 @@ SceneRoots:
   - {fileID: 7350687991729737656}
   - {fileID: 1039987030}
   - {fileID: 527782026}
+  - {fileID: 465517073}
