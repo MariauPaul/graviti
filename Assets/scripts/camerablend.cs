@@ -5,44 +5,36 @@ using UnityEngine;
 
 public class camerablend : MonoBehaviour
 {
-    [SerializeField] private CinemachineVirtualCamera Room;
-    [SerializeField] private CinemachineVirtualCamera player;
-    [SerializeField]  static bool CheckCam = true;
-    // Start is called before the first frame update
+    private GameObject Player;
+    private CinemachineVirtualCamera camRoom;                                                       // Room Camera
+    private CinemachineVirtualCamera camPlayer;                                                     // Player Camera
+    private static bool camIsOnPlayer = true;                                                       // Prevent CamGlitch;
+
     void Start()
-    {
-        
+    {                                                                                               // init. Cams
+        camRoom = GetComponentInChildren<CinemachineVirtualCamera>();
+        Player = GameObject.FindWithTag("Player");
+        camPlayer = Player.GetComponentInChildren<CinemachineVirtualCamera>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    private void ShowOverheadView() {
-       player.enabled = false;
-       Room.enabled = true;
-    }
-    void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Player")
+    private void OnTriggerEnter(Collider other)
+    {                                                                                               // Switch cBrain from player to room
+        if (other.tag == "Player" && camIsOnPlayer)
         {
-            if (CheckCam)
-            {
-                player.Priority = 1;
-                Debug.Log("PlqyerToRoom");
-                Room.Priority = 2;
-                CheckCam = false;
-            }
-           
+            camPlayer.Priority = 1;
+            camRoom.Priority = 2;
+            camIsOnPlayer = false;
         }
     }
+
     private void OnTriggerExit(Collider other)
-    {
-            player.Priority = 2;
-            Debug.Log("RoomToPlqyer");
-            Room.Priority = 1;
-        CheckCam = true;
+    {                                                                                               // Switch cBrain from player to room
+        if (other.tag == "Player" && !camIsOnPlayer)
+        {
+            camPlayer.Priority = 2;
+            camRoom.Priority = 1;
+            camIsOnPlayer = true;
+        }
     }
 }
 
