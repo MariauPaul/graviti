@@ -6,7 +6,7 @@ using UnityEngine;
 public class camerablend : MonoBehaviour
 {
     private GameObject Player;
-    private CinemachineVirtualCamera camRoom;                                                       // Room Camera
+    [SerializeField] CinemachineVirtualCamera camRoom;                                                       // Room Camera
     private CinemachineVirtualCamera camPlayer;                                                     // Player Camera
     private static bool camIsOnPlayer = true;                                                       // Prevent CamGlitch;
 
@@ -15,6 +15,8 @@ public class camerablend : MonoBehaviour
         camRoom = GetComponentInChildren<CinemachineVirtualCamera>();
         Player = GameObject.FindWithTag("Player");
         camPlayer = Player.GetComponentInChildren<CinemachineVirtualCamera>();
+        camRoom.Priority = 0;
+
     }
 
     private void OnTriggerEnter(Collider other)
