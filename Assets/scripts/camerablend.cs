@@ -13,7 +13,7 @@ public class camerablend : MonoBehaviour
     void Start()
     {                                                                                               // init. Cams
         camRoom = GetComponentInChildren<CinemachineVirtualCamera>();
-        Player = GameObject.FindWithTag("Player");
+        Player = GameObject.Find("camPos");
         camPlayer = Player.GetComponentInChildren<CinemachineVirtualCamera>();
         camRoom.Priority = 0;
 

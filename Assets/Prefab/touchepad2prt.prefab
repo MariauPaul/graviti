@@ -60,10 +60,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4780072770720950627, guid: 3f37efd04ce513448ac3f01ee81b7c77, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fc4f7ff9e37bc224dae368324672a001, type: 2}
     - target: {fileID: 919132149155446097, guid: 3f37efd04ce513448ac3f01ee81b7c77, type: 3}
       propertyPath: m_Name
       value: touchepad2prt
       objectReference: {fileID: 0}
+    - target: {fileID: 4253280567622488715, guid: 3f37efd04ce513448ac3f01ee81b7c77, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fc4f7ff9e37bc224dae368324672a001, type: 2}
     - target: {fileID: 5639405848544218604, guid: 3f37efd04ce513448ac3f01ee81b7c77, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.009956387
