@@ -71,13 +71,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639ae4e6b8e185d44bea47a0dfc18741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
   groundDrag: 3
   airDrag: 2.5
   airMultiplier: 0.8
   isGrounded: 0
   jumpCd: 0.1
-  jumpHeight: 5
+  jumpHeight: 1
   jumpButtonMaxPressTime: 0.3
   maxDrag: 6
   isGravInvert: 0
