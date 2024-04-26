@@ -16,7 +16,7 @@ public class OpenDoor : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            doorRoom.SetTrigger("Open");                    // Animation need to do not be with exitTime
+            OpeDoor();
         }
     }
 
@@ -24,7 +24,17 @@ public class OpenDoor : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            doorRoom.SetTrigger("Close");                   // Animation need to do not be with exitTime
+            CloseDoor();
         }
+    }
+
+    public void OpeDoor()
+    {
+        doorRoom.SetTrigger("Open");                    // Animation need to do not be with exitTime
+    }
+
+    public void CloseDoor()
+    {
+        doorRoom.SetTrigger("Close");                   // Animation need to do not be with exitTime
     }
 }

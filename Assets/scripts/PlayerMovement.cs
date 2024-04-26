@@ -64,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
         Grounded();
         CheckJumpCancel();
         Rotate();
-        Debug.Log(Physics.gravity);
     }
     private void FixedUpdate()
     {
