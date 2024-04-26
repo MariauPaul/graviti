@@ -11,14 +11,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float groundDrag;
     [SerializeField] float airDrag;
     [SerializeField] float airMultiplier;
+    [SerializeField] bool isGrounded;
 
     private Vector3 moveDir;
     private Vector3 currentVel;
     private Vector3 goForward;
 
     private float horizontalInput;
-
-    [SerializeField] bool isGrounded;
+    private bool isFlip = false;
 
     [Header("Jump Parameters")]
     [SerializeField] float jumpCd;
@@ -46,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform footR;
     [SerializeField] Transform grabPos;
     [SerializeField] Transform grabRayCast;
-    // [SerializeField] GameObject Player;
+
+    private Vector3 respawnPos;
 
     private GameObject itemGrab;
     private bool handFull = false;
@@ -123,6 +124,8 @@ public class PlayerMovement : MonoBehaviour
     void Movement()
     {
         moveDir = goForward * horizontalInput;
+        if (moveDir.x > 0.1)        isFlip = false;
+        else if (moveDir.x < -0.1)   isFlip = true;
 
         // air cointrol
         if (!isGrounded) rb.AddForce(moveDir.normalized * speed * 70 * airMultiplier, ForceMode.Force);
@@ -192,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
             canSwitchGrav = false;
 
             isGravInvert = !isGravInvert;
-            goForward = isGravInvert ? new Vector3(1,0,0) : new Vector3(1,0,0);
+            //goForward = isGravInvert ? new Vector3(1,0,0) : new Vector3(1,0,0);
 
             Physics.gravity *= -1;
 
@@ -202,14 +205,24 @@ public class PlayerMovement : MonoBehaviour
 
     void Rotate()
     {
-        if (!isGravInvert && transform.rotation.z != 0)
+        Debug.Log(rb.rotation);
+        if (!isGravInvert && transform.rotation.z != 1 && !isFlip)
         {
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (isGravInvert && transform.rotation.z != 1)
+        else if (!isGravInvert && transform.rotation.z != 1 && isFlip)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (isGravInvert && !isFlip && transform.rotation.y != 1 && transform.rotation.x != 1)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 180);
+        }
+        else if(isGravInvert && transform.rotation.z != 1 && transform.rotation.x != 1 && isFlip)
         {
             transform.localRotation = Quaternion.Euler(0, 0, 180);
         }
+
     }
 
     void ResetSwitchGrave()
@@ -251,6 +264,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "CheckPoint")
+        {
+            other.gameObject.SetActive(false);
+            SetRespawn();
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Attrape")
@@ -258,5 +280,27 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
             rb.drag = 1;
         }
+        else if (collision.gameObject.tag == "Death") StartCoroutine(DelayDeath());
+    }
+
+    public void SetRespawn()
+    {
+        respawnPos = transform.position;
+    }
+
+    private void Respawn()
+    {
+        transform.position = respawnPos;
+    }
+
+    public void Death()
+    {
+        StartCoroutine(DelayDeath());
+    }
+
+    IEnumerator DelayDeath()
+    {
+        yield return new WaitForSeconds(2);
+        Respawn();
     }
 }
