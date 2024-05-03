@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     private bool handFull = false;
     private Rigidbody rb;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
