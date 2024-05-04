@@ -46,10 +46,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform footR;
     [SerializeField] Transform grabPos;
     [SerializeField] Transform grabRayCast;
+    [SerializeField] private GameObject playerMesh;
 
     private Vector3 respawnPos;
 
     private GameObject itemGrab;
+    
     private bool handFull = false;
     private Rigidbody rb;
 
@@ -206,24 +208,22 @@ public class PlayerMovement : MonoBehaviour
 
     void Rotate()
     {
-        Debug.Log(rb.rotation);
-        if (!isGravInvert && transform.rotation.z != 1 && !isFlip)
+        if (!isGravInvert && !isFlip && playerMesh.transform.rotation.w != 1)
         {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
+            playerMesh.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (!isGravInvert && transform.rotation.z != 1 && isFlip)
+        else if (!isGravInvert && isFlip && playerMesh.transform.rotation.y != 1)
         {
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
+            playerMesh.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
-        else if (isGravInvert && !isFlip && transform.rotation.y != 1 && transform.rotation.x != 1)
+        else if (isGravInvert && !isFlip && playerMesh.transform.rotation.x != 1)
         {
-            transform.localRotation = Quaternion.Euler(0, 180, 180);
+            playerMesh.transform.localRotation = Quaternion.Euler(0, 180, 180);
         }
-        else if(isGravInvert && transform.rotation.z != 1 && transform.rotation.x != 1 && isFlip)
+        else if(isGravInvert && isFlip && playerMesh.transform.rotation.z != 1)
         {
-            transform.localRotation = Quaternion.Euler(0, 0, 180);
+            playerMesh.transform.localRotation = Quaternion.Euler(0, 0, 180);
         }
-
     }
 
     void ResetSwitchGrave()
@@ -239,15 +239,14 @@ public class PlayerMovement : MonoBehaviour
             itemGrab.transform.SetParent(null);
             itemGrab.GetComponent<Rigidbody>().useGravity = true;
             itemGrab.GetComponent<Rigidbody>().drag = 10;
+            StartCoroutine(DelayUnGrab());
             itemGrab.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            itemGrab.GetComponent<Collider>().isTrigger = false;
-            //itemGrab.GetComponent<Rigidbody>().AddForce(GetComponent.x, 2,ForceMode.Force);
-            itemGrab = null;
+            itemGrab.GetComponent<Rigidbody>().AddForce(isFlip ? Vector3.left * 15 : Vector3.right * 15, ForceMode.Impulse);
         }
         else
         {
             RaycastHit hit;
-            if (Physics.Raycast(grabRayCast.position, Vector3.right, out hit, 1.5f))
+            if (Physics.Raycast(grabRayCast.position, isFlip ? Vector3.left : Vector3.right, out hit, 1.5f))
 
             {
                 if (hit.collider.tag == "Attrape")
@@ -258,6 +257,7 @@ public class PlayerMovement : MonoBehaviour
                     itemGrab.GetComponent<Rigidbody>().useGravity = false;
                     itemGrab.GetComponent<Rigidbody>().drag = 0;
                     itemGrab.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                    itemGrab.GetComponent<Rigidbody>().isKinematic = false;
                     itemGrab.GetComponent<Collider>().isTrigger = true;
                     itemGrab.transform.parent = grabPos.transform;
                 }
@@ -303,5 +303,12 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         Respawn();
+    }
+
+    IEnumerator DelayUnGrab()
+    {
+        yield return new WaitForSeconds(0.2f);
+        itemGrab.GetComponent<Collider>().isTrigger = false;
+        itemGrab = null;
     }
 }

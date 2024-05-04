@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class SRC_Button : MonoBehaviour
@@ -19,8 +20,9 @@ public class SRC_Button : MonoBehaviour
         anim.SetBool("isTrigger", true);
         if (other.tag == "Attrape")
         {
-            iAmTheCase = other.GetComponent<GameObject>();
-            Placement();
+            iAmTheCase = other.gameObject;
+            iAmTheCase.GetComponent<Collider>().isTrigger = true;
+            StartCoroutine(Placement());
         }
     }
 
@@ -33,17 +35,9 @@ public class SRC_Button : MonoBehaviour
         }
     }
 
-    public void Placement()
+    IEnumerator Placement()
     {
-        if (iAmTheCase != null)
-        {
-            iAmTheCase.transform.parent = transform;
-            while (iAmTheCase.transform.position != Vector3.zero)
-            {
-                iAmTheCase.transform.position = Vector3.MoveTowards(iAmTheCase.transform.position, Vector3.zero, 0.01f);
-            }
-        }
-        rToMove = true;
+        yield return new WaitForSeconds(0.5f);
         iAmTheCase.GetComponent<Rigidbody>().isKinematic = true;
     }
 }

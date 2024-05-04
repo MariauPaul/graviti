@@ -8,7 +8,7 @@ public class OpenDoor : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {                                                       // Init. Animator
+    {                                                                // Init. Animator
         doorRoom = GetComponentInChildren<Animator>();
     }
 
@@ -30,11 +30,11 @@ public class OpenDoor : MonoBehaviour
 
     public void OpeDoor()
     {
-        doorRoom.SetTrigger("Open");                    // Animation need to do not be with exitTime
+        doorRoom.SetBool("SomeOneIsThere", true);                   // Animation need exitTime 0/I
     }
 
     public void CloseDoor()
     {
-        doorRoom.SetTrigger("Close");                   // Animation need to do not be with exitTime
+        doorRoom.SetBool("SomeOneIsThere", false);                  // Animation need exitTime 0/I
     }
 }
