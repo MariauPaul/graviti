@@ -7,11 +7,20 @@ public class OpenDoor : MonoBehaviour
 {
     private Animator doorRoom;
     private camerablend room;
-    private bool isFirstDoorIsLock;
+    private bool doorIsLock;
 
     // Start is called before the first frame update
     void Start()
     {                                                                // Init. Animator
+        if (this.tag == "Enter")
+        { 
+            doorIsLock = false;
+        }
+
+        if (this.tag == "Enter")
+        {
+            doorIsLock = true;
+        }
         doorRoom = GetComponentInChildren<Animator>();
     }
 
@@ -19,7 +28,10 @@ public class OpenDoor : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            OpeDoor();
+            if (!doorIsLock)
+            {
+                OpeDoor();
+            }
         }
     }
 
@@ -27,10 +39,9 @@ public class OpenDoor : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (room.isInRoom && !isFirstDoorIsLock)
+            if (room.isInRoom && !doorIsLock)
             {
-                gameObject.GetComponent<Collider>().enabled = false;
-                isFirstDoorIsLock = true;
+                doorIsLock = true;
             }
             CloseDoor();
         }

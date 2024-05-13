@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontalInput;
     private bool isFlip = false;
+    private bool canMove = true;
 
     [Header("Jump Parameters")]
     [SerializeField] float jumpCd;
@@ -31,14 +32,14 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isJumpReady = true;
     private bool jumpCancel;
+    private bool canJump = false;
     private float jumpBuffer;
 
     [Header("Gravity")]
     [SerializeField] bool isGravInvert = false;
     [SerializeField] float switchGravCd;
-    // [SerializeField] Quaternion rotation;
 
-    private bool canSwitchGrav = true;
+    private bool canSwitchGrav = false;
 
     [Header("Other")]
     [SerializeField] LayerMask iAmCelling;
@@ -56,13 +57,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
 
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
         goForward = new Vector3(1, 0, 0);
     }
 
-    void Update()
+    private void Update()
     {
         GetKey();
         Grounded();
@@ -76,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         JumpCancel();
     }
 
-    void GetKey()
+    private void GetKey()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
@@ -97,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Grounded()
+    private void Grounded()
     {
         isGrounded = Physics.Raycast(footR.position, isGravInvert ? Vector3.up : Vector3.down, 0.1f/*, iAmGround*/);
 
@@ -122,19 +123,53 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void Rotate()
+    {
+        if (!isGravInvert && !isFlip && playerMesh.transform.rotation.w != 1)
+        {
+            playerMesh.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (!isGravInvert && isFlip && playerMesh.transform.rotation.y != 1)
+        {
+            playerMesh.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (isGravInvert && !isFlip && playerMesh.transform.rotation.x != 1)
+        {
+            playerMesh.transform.localRotation = Quaternion.Euler(0, 180, 180);
+        }
+        else if (isGravInvert && isFlip && playerMesh.transform.rotation.z != 1)
+        {
+            playerMesh.transform.localRotation = Quaternion.Euler(0, 0, 180);
+        }
+    }
 
     // MovementPlayer //
-    void Movement()
+    private void Movement()
     {
         moveDir = goForward * horizontalInput;
         if (moveDir.x > 0.1)        isFlip = false;
         else if (moveDir.x < -0.1)   isFlip = true;
 
-        // air cointrol
-        if (!isGrounded) rb.AddForce(moveDir.normalized * speed * 70 * airMultiplier, ForceMode.Force);
+        if (canMove)
+        {
+            // air cointrol
+            if (!isGrounded) rb.AddForce(moveDir.normalized * speed * 70 * airMultiplier, ForceMode.Force);
 
-        // groun control
-        if (isGrounded) rb.AddForce(moveDir.normalized * speed * 70, ForceMode.Force);
+            // groun control
+            if (isGrounded) rb.AddForce(moveDir.normalized * speed * 70, ForceMode.Force);
+        }
+    }
+
+    public void IOMove(bool x)
+    {
+        if (x)
+        {
+            canMove = true;
+        }
+        else
+        {
+            canMove = false;
+        }
     }
 
     private void SpeedVel()
@@ -149,9 +184,9 @@ public class PlayerMovement : MonoBehaviour
 
 
     // Jump Player //
-    void Jump()
+    private void Jump()
     {
-        if (isJumpReady && isGrounded)
+        if (isJumpReady && isGrounded && canJump)
         {
             isJumpReady = false;
             jumpCancel = false;
@@ -168,12 +203,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void ResetJump()
+    private void ResetJump()
     {
         isJumpReady = true;
     }
 
-    void CheckJumpCancel()
+    private void CheckJumpCancel()
     {
         jumpButtonPressTime += Time.deltaTime;
 
@@ -183,7 +218,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void JumpCancel()
+    private void JumpCancel()
     {
         if (jumpCancel && !isJumpReady && (isGravInvert ? rb.velocity.y < 0 : rb.velocity.y > 0))
         {
@@ -191,7 +226,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void SwitchGrav()
+    public void IOJump(bool x)
+    {
+        if (x)
+        {
+            canJump = true;
+        }
+        else
+        {
+            canJump = false;
+        }
+    }
+
+    private void SwitchGrav()
     {
         if (canSwitchGrav && isGrounded)
         {
@@ -206,32 +253,24 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Rotate()
+    public void IOSwitchGrav(bool x)
     {
-        if (!isGravInvert && !isFlip && playerMesh.transform.rotation.w != 1)
+        if (!x)
         {
-            playerMesh.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            canSwitchGrav = false;
         }
-        else if (!isGravInvert && isFlip && playerMesh.transform.rotation.y != 1)
+        else
         {
-            playerMesh.transform.localRotation = Quaternion.Euler(0, 180, 0);
-        }
-        else if (isGravInvert && !isFlip && playerMesh.transform.rotation.x != 1)
-        {
-            playerMesh.transform.localRotation = Quaternion.Euler(0, 180, 180);
-        }
-        else if(isGravInvert && isFlip && playerMesh.transform.rotation.z != 1)
-        {
-            playerMesh.transform.localRotation = Quaternion.Euler(0, 0, 180);
+            canSwitchGrav = true;
         }
     }
 
-    void ResetSwitchGrave()
+    private void ResetSwitchGrave()
     {
         canSwitchGrav = true;
     }
 
-    void Grab()
+    private void Grab()
     {
         if (handFull)
         {
