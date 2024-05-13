@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
     private Animator doorRoom;
+    private camerablend room;
+    private bool isFirstDoorIsLock;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,11 @@ public class OpenDoor : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            if (room.isInRoom && !isFirstDoorIsLock)
+            {
+                gameObject.GetComponent<Collider>().enabled = false;
+                isFirstDoorIsLock = true;
+            }
             CloseDoor();
         }
     }

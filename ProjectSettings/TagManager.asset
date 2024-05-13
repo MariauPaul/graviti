@@ -9,6 +9,8 @@ TagManager:
   - Butoon
   - Death
   - CheckPoint
+  - Enter
+  - Exit
   layers:
   - Default
   - TransparentFX
