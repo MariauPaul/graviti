@@ -32,14 +32,14 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isJumpReady = true;
     private bool jumpCancel;
-    private bool canJump = false;
+    private bool canJump = true;
     private float jumpBuffer;
 
     [Header("Gravity")]
     [SerializeField] bool isGravInvert = false;
     [SerializeField] float switchGravCd;
 
-    private bool canSwitchGrav = false;
+    private bool canSwitchGrav = true;
 
     [Header("Other")]
     [SerializeField] LayerMask iAmCelling;

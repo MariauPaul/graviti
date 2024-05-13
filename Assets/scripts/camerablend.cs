@@ -15,18 +15,23 @@ public class camerablend : MonoBehaviour
     [SerializeField] private float timeBeforeDestroy;
     private PlayableDirector TL;
 
-    private Collider EnterDoor, ExitDoor;
+    [SerializeField] private GameObject EnterDoor, ExitDoor;
+    private OpenDoor enterDoorSCR, exitDoorSCR;
 
-    public bool isInRoom = false;
+    public bool isInRoom;
     private bool roomCompleted = false;
 
     void Start()
     {                                                                                               // init. Cams
-        //EnterDoor = transform.GetComponentInChildren<Collider>(gameObject.CompareTag("Enter"));
-        //ExitDoor = transform.GetComponentInChildren<Collider>(gameObject.CompareTag("Exit"));
+        //EnterDoor = transform.GetComponentInChildren<OpenDoor>(gameObject.CompareTag("Enter"));
+        //ExitDoor = transform.GetComponentInChildren<OpenDoor>(gameObject.CompareTag("Exit"));
+        enterDoorSCR = EnterDoor.GetComponent<OpenDoor>();
+        exitDoorSCR = ExitDoor.GetComponent<OpenDoor>();
+
         camRoom = GetComponentInChildren<CinemachineVirtualCamera>();
         camPlayer = GameObject.Find("camPos").GetComponentInChildren<CinemachineVirtualCamera>();
         camRoom.Priority = 0;
+
         TL = GetComponent<PlayableDirector>();
     }
 
@@ -34,6 +39,7 @@ public class camerablend : MonoBehaviour
     {                                                                                               // Switch cBrain from player to room
         if (other.tag == "Player" && camIsOnPlayer)
         {
+            enterDoorSCR.isPlayerInARoom(true); exitDoorSCR.isPlayerInARoom(true);
             isInRoom = true;
             camPlayer.Priority = 1;
             camRoom.Priority = 2;
@@ -47,6 +53,7 @@ public class camerablend : MonoBehaviour
     {                                                                                               // Switch cBrain from player to room
         if (other.tag == "Player" && !camIsOnPlayer)
         {
+            enterDoorSCR.isPlayerInARoom(false); exitDoorSCR.isPlayerInARoom(false);
             isInRoom = false;
             camPlayer.Priority = 2;
             camRoom.Priority = 1;
@@ -66,7 +73,9 @@ public class camerablend : MonoBehaviour
     }
 
     public void Completed()
-    {roomCompleted = true;}
+    {
+        roomCompleted = true; // a modif
+    }
 }
 
 
