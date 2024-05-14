@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(rb.velocity.y);
         GetKey();
         Grounded();
         CheckJumpCancel();
@@ -147,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
     private void Movement()
     {
         moveDir = goForward * horizontalInput;
+
         if (moveDir.x > 0.1)        isFlip = false;
         else if (moveDir.x < -0.1)   isFlip = true;
 

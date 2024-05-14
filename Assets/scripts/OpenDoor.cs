@@ -39,15 +39,28 @@ public class OpenDoor : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (this.tag == "Enter")
         {
-            if (isInRoom && !doorIsLock)
+            if (other.tag == "Player")
             {
-                doorIsLock = true;
+                if (isInRoom && !doorIsLock)
+                {
+                    doorIsLock = true;
+                }
             }
-            
-            CloseDoor();
         }
+        else
+        {
+            if (other.tag == "Player")
+            {
+                if (!isInRoom && !doorIsLock)
+                {
+                    doorIsLock = true;
+                }
+            }
+
+        }
+        CloseDoor();
     }
 
     public void isPlayerInARoom(bool x)
