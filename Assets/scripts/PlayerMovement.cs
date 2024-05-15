@@ -106,10 +106,10 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             rb.drag = groundDrag;
-            if (rb.mass > 1)
-            { 
-                rb.mass = 1;
-            }
+            //if (rb.mass > 1)
+            //{ 
+            //    rb.mass = 1;
+            //}
         }
         else
         {
@@ -155,10 +155,10 @@ public class PlayerMovement : MonoBehaviour
         if (canMove)
         {
             // air cointrol
-            if (!isGrounded) rb.AddForce(moveDir.normalized * speed * 70 * airMultiplier, ForceMode.Force);
+            if (!isGrounded) rb.AddForce(moveDir.normalized * speed * 70 * rb.mass * airMultiplier, ForceMode.Force);
 
             // groun control
-            if (isGrounded) rb.AddForce(moveDir.normalized * speed * 70, ForceMode.Force);
+            if (isGrounded) rb.AddForce(moveDir.normalized * speed * 70 * rb.mass, ForceMode.Force);
         }
     }
 
