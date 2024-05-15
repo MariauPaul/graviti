@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using Unity.VisualScripting;
 using UnityEditor.Search;
 using UnityEngine;
 
 public class SRC_Button : MonoBehaviour
 {
+    [SerializeField] private OpenDoor Complete;
     private bool rToMove = false;
     private Animator anim;
     private GameObject iAmTheCase;
@@ -24,6 +26,10 @@ public class SRC_Button : MonoBehaviour
             iAmTheCase.GetComponent<Collider>().isTrigger = true;
             StartCoroutine(Placement());
         }
+        if (other.tag == "Attrape" || other.tag == "Player")
+        {
+            Complete.UnlockDoor();
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -37,7 +43,7 @@ public class SRC_Button : MonoBehaviour
 
     IEnumerator Placement()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         iAmTheCase.GetComponent<Rigidbody>().isKinematic = true;
     }
 }

@@ -282,7 +282,7 @@ public class PlayerMovement : MonoBehaviour
             itemGrab.GetComponent<Rigidbody>().drag = 10;
             StartCoroutine(DelayUnGrab());
             itemGrab.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            itemGrab.GetComponent<Rigidbody>().AddForce(isFlip ? Vector3.left * 15 : Vector3.right * 15, ForceMode.Impulse);
+            itemGrab.GetComponent<Rigidbody>().AddForce(isFlip ? Vector3.left * 2000 : Vector3.right * 2000, ForceMode.Impulse);
         }
         else
         {
