@@ -313,6 +313,10 @@ public class PlayerMovement : MonoBehaviour
             other.gameObject.SetActive(false);
             SetRespawn();
         }
+        if (other.gameObject.tag == "Death")
+        {
+           Death();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
