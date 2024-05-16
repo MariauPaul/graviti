@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using Unity.VisualScripting;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class SRC_Button : MonoBehaviour
@@ -23,7 +22,6 @@ public class SRC_Button : MonoBehaviour
         if (other.tag == "Attrape")
         {
             iAmTheCase = other.gameObject;
-            iAmTheCase.GetComponent<Collider>().isTrigger = true;
             StartCoroutine(Placement());
         }
         if (other.tag == "Attrape" || other.tag == "Player")
@@ -43,7 +41,10 @@ public class SRC_Button : MonoBehaviour
 
     IEnumerator Placement()
     {
+        rToMove = true;
+        iAmTheCase.GetComponent<Collider>().isTrigger = true;
         yield return new WaitForSeconds(0.2f);
         iAmTheCase.GetComponent<Rigidbody>().isKinematic = true;
+        rToMove = false;
     }
 }

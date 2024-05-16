@@ -54,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
     private GameObject itemGrab;
     
     private bool handFull = false;
+    private bool waitingForDeath = false;
+
     private Rigidbody rb;
 
 
@@ -336,16 +338,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void Respawn()
     {
+        waitingForDeath = false;
         transform.position = respawnPos;
     }
 
     public void Death()
     {
-        StartCoroutine(DelayDeath());
+        if (waitingForDeath)
+        {
+            StartCoroutine(DelayDeath());
+        }
     }
 
     IEnumerator DelayDeath()
     {
+        waitingForDeath = true;
         yield return new WaitForSeconds(2);
         Respawn();
     }
