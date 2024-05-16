@@ -7,12 +7,22 @@ using UnityEngine;
 public class SRC_Button : MonoBehaviour
 {
     [SerializeField] private OpenDoor Complete;
-    private bool rToMove = false;
+    private bool didIAmGreen;
     private Animator anim;
     private GameObject iAmTheCase;
 
     void Start()
     {
+        if (this.tag == "Butoon")
+        {
+            didIAmGreen = false;
+        }
+
+        else if (this.tag == "GreenButton")
+        {
+            didIAmGreen = true;
+        }
+
         anim = GetComponent<Animator>();
     }
 
@@ -27,23 +37,27 @@ public class SRC_Button : MonoBehaviour
         if (other.tag == "Attrape" || other.tag == "Player")
         {
             Complete.UnlockDoor();
+            if (Complete.tag == "Jointure")
+            {
+                Complete.OpeDoor();
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        iAmTheCase = null;
-        anim.SetBool("isTrigger", false);
-        Complete.LockDoor();
-
+        if (!didIAmGreen)
+        {
+            iAmTheCase = null;
+            anim.SetBool("isTrigger", false);
+            Complete.LockDoor();
+        }
     }
 
     IEnumerator Placement()
     {
-        rToMove = true; 
         iAmTheCase.GetComponent<Collider>().isTrigger = true;
         yield return new WaitForSeconds(0.2f);
         iAmTheCase.GetComponent<Rigidbody>().isKinematic = true;
-        rToMove = false;
     }
 }

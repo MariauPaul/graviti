@@ -11,6 +11,8 @@ TagManager:
   - CheckPoint
   - Enter
   - Exit
+  - Jointure
+  - GreenButton
   layers:
   - Default
   - TransparentFX
