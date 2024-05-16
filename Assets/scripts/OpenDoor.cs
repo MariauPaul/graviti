@@ -79,6 +79,10 @@ public class OpenDoor : MonoBehaviour
     {
         doorIsLock = false;
     }
+    public void LockDoor()
+    {
+        doorIsLock = true;
+    }
 
     public void OpeDoor()
     {

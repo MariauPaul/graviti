@@ -32,16 +32,15 @@ public class SRC_Button : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (rToMove != true)
-        {
-            iAmTheCase = null;
-            anim.SetBool("isTrigger", false);
-        }
+        iAmTheCase = null;
+        anim.SetBool("isTrigger", false);
+        Complete.LockDoor();
+
     }
 
     IEnumerator Placement()
     {
-        rToMove = true;
+        rToMove = true; 
         iAmTheCase.GetComponent<Collider>().isTrigger = true;
         yield return new WaitForSeconds(0.2f);
         iAmTheCase.GetComponent<Rigidbody>().isKinematic = true;

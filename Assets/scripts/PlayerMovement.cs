@@ -284,12 +284,13 @@ public class PlayerMovement : MonoBehaviour
             itemGrab.GetComponent<Rigidbody>().drag = 10;
             StartCoroutine(DelayUnGrab());
             itemGrab.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            itemGrab.GetComponent<Rigidbody>().isKinematic = false;
             itemGrab.GetComponent<Rigidbody>().AddForce(isFlip ? Vector3.left * 2000 : Vector3.right * 2000, ForceMode.Impulse);
         }
         else
         {
             RaycastHit hit;
-            if (Physics.Raycast(grabRayCast.position, isFlip ? Vector3.left : Vector3.right, out hit, 1.5f))
+            if (Physics.Raycast(grabRayCast.position, isFlip ? Vector3.left : Vector3.right, out hit, 2.5f))
 
             {
                 if (hit.collider.tag == "Attrape")
@@ -300,7 +301,7 @@ public class PlayerMovement : MonoBehaviour
                     itemGrab.GetComponent<Rigidbody>().useGravity = false;
                     itemGrab.GetComponent<Rigidbody>().drag = 0;
                     itemGrab.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                    itemGrab.GetComponent<Rigidbody>().isKinematic = false;
+                    itemGrab.GetComponent<Rigidbody>().isKinematic = true;
                     itemGrab.GetComponent<Collider>().isTrigger = true;
                     itemGrab.transform.parent = grabPos.transform;
                 }
