@@ -345,7 +345,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Death()
     {
-        if (waitingForDeath)
+        if (!waitingForDeath)
         {
             StartCoroutine(DelayDeath());
         }

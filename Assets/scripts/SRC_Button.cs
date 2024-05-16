@@ -28,7 +28,6 @@ public class SRC_Button : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        anim.SetBool("isTrigger", true);
         if (other.tag == "Attrape")
         {
             iAmTheCase = other.gameObject;
@@ -42,6 +41,11 @@ public class SRC_Button : MonoBehaviour
                 Complete.OpeDoor();
             }
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        anim.SetBool("isTrigger", true);
     }
 
     private void OnTriggerExit(Collider other)
