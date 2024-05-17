@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3799029965519094912}
   m_Layer: 0
   m_Name: Respawn
-  m_TagString: Respawn
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
