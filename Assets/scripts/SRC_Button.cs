@@ -11,6 +11,8 @@ public class SRC_Button : MonoBehaviour
     private Animator anim;
     private GameObject iAmTheCase;
 
+    public bool ButtonIsPush = false; 
+
     void Start()
     {
         if (this.tag == "Butoon")
@@ -46,6 +48,7 @@ public class SRC_Button : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         anim.SetBool("isTrigger", true);
+        ButtonIsPush=true;
     }
 
     private void OnTriggerExit(Collider other)
@@ -55,6 +58,7 @@ public class SRC_Button : MonoBehaviour
             iAmTheCase = null;
             anim.SetBool("isTrigger", false);
             Complete.LockDoor();
+            ButtonIsPush = false;
         }
     }
 
