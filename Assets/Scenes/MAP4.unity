@@ -859,7 +859,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.83
+      value: 32.05
       objectReference: {fileID: 0}
     - target: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1086,7 +1086,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 177544293763236640, guid: a5b522919b9b3684ba967d108a470891, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.68
+      value: 28.91
       objectReference: {fileID: 0}
     - target: {fileID: 177544293763236640, guid: a5b522919b9b3684ba967d108a470891, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5058,7 +5058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8396942277703056249, guid: df5464ac3bda8f84fa0c35dbc04b1efe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.68
+      value: 28.91
       objectReference: {fileID: 0}
     - target: {fileID: 8396942277703056249, guid: df5464ac3bda8f84fa0c35dbc04b1efe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6791,7 +6791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5458101946499146563, guid: a823113227b031942a1d205dcc410ea6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.82
+      value: 25.629997
       objectReference: {fileID: 0}
     - target: {fileID: 5458101946499146563, guid: a823113227b031942a1d205dcc410ea6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7403,7 +7403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &576849534
 Animator:
   serializedVersion: 5
@@ -7538,7 +7538,7 @@ Transform:
   m_GameObject: {fileID: 576849533}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33.23427, y: 14.116592, z: -3.9467487}
+  m_LocalPosition: {x: 33.23427, y: 14.11659, z: -3.946749}
   m_LocalScale: {x: 21.543104, y: 21.543104, z: 21.543104}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12950,6 +12950,7 @@ GameObject:
   - component: {fileID: 1003258030}
   - component: {fileID: 1003258029}
   - component: {fileID: 1003258028}
+  - component: {fileID: 1003258031}
   m_Layer: 0
   m_Name: BRAS (1)
   m_TagString: Untagged
@@ -13045,6 +13046,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003258025}
   m_Mesh: {fileID: 4068373912626513877, guid: d768f529eef02bd4eaafbbffc4c9b0bc, type: 3}
+--- !u!95 &1003258031
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003258025}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c2c6ec7fea51def4d8d409e60cb89846, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1009766359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23240,7 +23262,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3837902576821853527, guid: cbaa50252eb2a914a938f9b5df2d9a08, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.68
+      value: 28.91
       objectReference: {fileID: 0}
     - target: {fileID: 3837902576821853527, guid: cbaa50252eb2a914a938f9b5df2d9a08, type: 3}
       propertyPath: m_LocalPosition.y
@@ -28894,7 +28916,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.36
+      value: 37.17
       objectReference: {fileID: 0}
     - target: {fileID: 3742298906641631556, guid: 5fe4bdadf5f1f244facceb2213c0e53e, type: 3}
       propertyPath: m_LocalPosition.y
