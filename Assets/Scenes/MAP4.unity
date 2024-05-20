@@ -1086,7 +1086,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 177544293763236640, guid: a5b522919b9b3684ba967d108a470891, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.91
+      value: 12.42
       objectReference: {fileID: 0}
     - target: {fileID: 177544293763236640, guid: a5b522919b9b3684ba967d108a470891, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5058,7 +5058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8396942277703056249, guid: df5464ac3bda8f84fa0c35dbc04b1efe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.91
+      value: 12.42
       objectReference: {fileID: 0}
     - target: {fileID: 8396942277703056249, guid: df5464ac3bda8f84fa0c35dbc04b1efe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23043,7 +23043,7 @@ Transform:
   m_GameObject: {fileID: 1639365755}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.290432, y: 1.5183444, z: 2.1916742}
+  m_LocalPosition: {x: 26.290432, y: 4.7, z: -2.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23084,8 +23084,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.764151, g: 0.6907333, b: 0.6019491, a: 1}
-  m_Intensity: 8.04
-  m_Range: 6.14
+  m_Intensity: 12.8
+  m_Range: 7.68
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -23262,7 +23262,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3837902576821853527, guid: cbaa50252eb2a914a938f9b5df2d9a08, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.91
+      value: 12.42
       objectReference: {fileID: 0}
     - target: {fileID: 3837902576821853527, guid: cbaa50252eb2a914a938f9b5df2d9a08, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23806,7 +23806,7 @@ Transform:
   m_GameObject: {fileID: 1691101194}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42.560432, y: 1.5183444, z: 2.1916742}
+  m_LocalPosition: {x: 42.560432, y: 4.7, z: -2.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23847,8 +23847,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.764151, g: 0.6907333, b: 0.6019491, a: 1}
-  m_Intensity: 8.04
-  m_Range: 6.14
+  m_Intensity: 12.8
+  m_Range: 7.68
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
