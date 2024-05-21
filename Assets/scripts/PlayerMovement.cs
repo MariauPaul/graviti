@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float airDrag;
     [SerializeField] float airMultiplier;
     [SerializeField] bool isGrounded;
+    [SerializeField] float deltaMoveDetection;
 
     private Vector3 moveDir;
     private Vector3 currentVel;
@@ -52,11 +53,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 respawnPos;
 
     private GameObject itemGrab;
-    
+
     private bool handFull = false;
     private bool waitingForDeath = false;
 
     private Rigidbody rb;
+    [SerializeField] Animator animator;
 
 
     private void Start()
@@ -109,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.drag = groundDrag;
             //if (rb.mass > 1)
-            //{ 
+            //{
             //    rb.mass = 1;
             //}
         }
@@ -150,6 +152,16 @@ public class PlayerMovement : MonoBehaviour
     private void Movement()
     {
         moveDir = goForward * horizontalInput;
+
+        animator.SetBool("IsWalking",!(moveDir.magnitude < deltaMoveDetection) && (moveDir.magnitude > -1f*deltaMoveDetection));
+        /*
+        if ((moveDir < deltaMoveDetection) && (moveDir > -1f*deltaMoveDetection)){
+          animator.SetBool("isWalking",false);
+        }
+        else {
+          animator.SetBool("isWalking",true);
+        }
+        */
 
         if (moveDir.x > 0.1)        isFlip = false;
         else if (moveDir.x < -0.1)   isFlip = true;

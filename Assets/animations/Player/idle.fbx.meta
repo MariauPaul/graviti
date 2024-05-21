@@ -1,0 +1,594 @@
+fileFormatVersion: 2
+guid: 77e8dd854faa6dd4c9645db16f7838fe
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'LeftUpperLeg' not found\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 1827226128182048838
+      firstFrame: 1
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: idle(Clone)
+      parentName: 
+      position: {x: -0, y: -0.48852354, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: haut_du_corp
+      parentName: idle(Clone)
+      position: {x: -0.07806001, y: 0.4376626, z: 3.5527136e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: coup
+      parentName: haut_du_corp
+      position: {x: 0.09149389, y: 0.239685, z: -0.0000000011920929}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: epaules
+      parentName: haut_du_corp
+      position: {x: 0.004995036, y: 0.19703682, z: 0.0025607012}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: torse
+      parentName: haut_du_corp
+      position: {x: -0.022323731, y: 0.18911679, z: 0.0000000047683715}
+      rotation: {x: 0, y: 0, z: 0.066199936, w: 0.9978064}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ventre
+      parentName: haut_du_corp
+      position: {x: -0.0064743613, y: 0.035835937, z: -3.5527136e-17}
+      rotation: {x: 0, y: 0, z: 0.040329732, w: 0.99918646}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bras_gauche
+      parentName: haut_du_corp
+      position: {x: 0.004995036, y: 0.19429265, z: 0.11316835}
+      rotation: {x: 0.09988391, y: 0.0075062853, z: -0.9770525, w: 0.18797694}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bras_Gauche
+      parentName: bras_gauche
+      position: {x: 0.050666932, y: -0.20406343, z: 0.000021533966}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: jointure_coudegauche
+      parentName: Bras_Gauche
+      position: {x: -0.051112045, y: 0.019608846, z: -0.10792625}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface34
+      parentName: jointure_coudegauche
+      position: {x: 0.07351009, y: 0.04442795, z: -0.0000000053003633}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: biceps
+      parentName: Bras_Gauche
+      position: {x: 0.02239804, y: 0.064036794, z: -0.10792625}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: gauche
+      parentName: bras_gauche
+      position: {x: -0.0004451084, y: -0.18445459, z: -0.0029216632}
+      rotation: {x: -0.60673445, y: 0.25855666, z: -0.31205195, w: 0.68384606}
+      scale: {x: 1, y: 1, z: 1}
+    - name: coude
+      parentName: gauche
+      position: {x: 0.07351008, y: 0.044427957, z: -0.10498306}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: poignet
+      parentName: gauche
+      position: {x: 0.07351008, y: 0.044427957, z: -0.10498306}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: avant_bras
+      parentName: gauche
+      position: {x: 0.07351008, y: 0.044427957, z: -0.10498306}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: main_gauche
+      parentName: gauche
+      position: {x: 0.04111088, y: -0.19672772, z: -0.002977743}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: paume
+      parentName: main_gauche
+      position: {x: 0.05054523, y: 0.02651711, z: -0.10106954}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface20
+      parentName: paume
+      position: {x: 0.00014851292, y: -0.003790394, z: 0.10891122}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: doigts
+      parentName: main_gauche
+      position: {x: 0.032028317, y: 0.24147685, z: -0.101069525}
+      rotation: {x: 0.55270416, y: 0.25882944, z: 0.2566608, w: 0.7494336}
+      scale: {x: 1, y: 1, z: 1}
+    - name: oriculaire
+      parentName: doigts
+      position: {x: 0.02987013, y: -0.27312884, z: 0.09814283}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface4
+      parentName: oriculaire
+      position: {x: -0.007985223, y: 0.014632266, z: 0.010551022}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface2
+      parentName: oriculaire
+      position: {x: -0.015497004, y: 0.0042602927, z: 0.01011237}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: anulaire
+      parentName: doigts
+      position: {x: 0.042425096, y: -0.26512116, z: 0.09814283}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface26
+      parentName: anulaire
+      position: {x: -0.007985223, y: 0.014632266, z: 0.010551022}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface27
+      parentName: anulaire
+      position: {x: -0.015497004, y: 0.004260291, z: 0.01011237}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: majeur
+      parentName: doigts
+      position: {x: 0.057165153, y: -0.260375, z: 0.09814283}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface29
+      parentName: majeur
+      position: {x: -0.007985221, y: 0.014632261, z: 0.0105510205}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface30
+      parentName: majeur
+      position: {x: -0.015497004, y: 0.0042602853, z: 0.0101123685}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pouce
+      parentName: doigts
+      position: {x: 0.038903363, y: -0.18470597, z: 0.10249051}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface32
+      parentName: pouce
+      position: {x: 0.0032222017, y: -0.021614283, z: 0.0069018146}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface33
+      parentName: pouce
+      position: {x: 0.011340874, y: -0.032923337, z: 0.0011079279}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bras_droit1
+      parentName: haut_du_corp
+      position: {x: 0.004995036, y: 0.19805472, z: -0.10643136}
+      rotation: {x: 0, y: -0, z: -0.061777737, w: 0.99808997}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bras_droit
+      parentName: bras_droit1
+      position: {x: 0.04527046, y: -0.20724483, z: 0.10643136}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: biceps
+      parentName: bras_droit
+      position: {x: -0.046044078, y: 0.124729976, z: 3.8265924e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface39
+      parentName: biceps
+      position: {x: 0.073838584, y: -0.06127384, z: -3.8265924e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: droite
+      parentName: bras_droit1
+      position: {x: -0.0004451084, y: -0.18821666, z: -0.0014948922}
+      rotation: {x: 0, y: 0, z: 0.02903774, w: 0.99957836}
+      scale: {x: 1, y: 1, z: 1}
+    - name: main
+      parentName: droite
+      position: {x: 0.07351008, y: 0.044427957, z: 0.10792625}
+      rotation: {x: -0.131197, y: -0.015222186, z: -0.02236668, w: 0.99098706}
+      scale: {x: 1, y: 1, z: 1}
+    - name: paume
+      parentName: main
+      position: {x: 0.018516907, y: -0.21495976, z: 0.000000016910288}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface20
+      parentName: paume
+      position: {x: 0.00014851292, y: -0.003790394, z: -0.10891122}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: doigts
+      parentName: main
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: oriculaire
+      parentName: doigts
+      position: {x: 0.02987013, y: -0.27312884, z: -0.09814283}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.38469, y: 1.38469, z: 1.38469}
+    - name: polySurface4
+      parentName: oriculaire
+      position: {x: -0.0057667946, y: 0.010567179, z: -0.0076197716}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface2
+      parentName: oriculaire
+      position: {x: -0.0010677882, y: 0.0012576737, z: 0.00050892826}
+      rotation: {x: -0.04537238, y: -0.008457918, z: 0.18305908, w: 0.98201793}
+      scale: {x: 1, y: 1, z: 1}
+    - name: anulaire
+      parentName: doigts
+      position: {x: 0.042425096, y: -0.26512116, z: -0.09814283}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface26
+      parentName: anulaire
+      position: {x: -0.0058378116, y: 0.011540688, z: -0.010551022}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface27
+      parentName: anulaire
+      position: {x: -0.0008782997, y: -0.0011401181, z: 0.0011125563}
+      rotation: {x: 0, y: 0, z: 0.17315227, w: 0.98489505}
+      scale: {x: 1, y: 1, z: 1}
+    - name: majeur
+      parentName: doigts
+      position: {x: 0.057165153, y: -0.260375, z: -0.09814283}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface29
+      parentName: majeur
+      position: {x: -0.007985221, y: 0.014632261, z: -0.0105510205}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface30
+      parentName: majeur
+      position: {x: -0.0013633325, y: 0.0013214159, z: 0.0007047129}
+      rotation: {x: 0, y: 0, z: 0.1832981, w: 0.9830574}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pouce
+      parentName: doigts
+      position: {x: 0.03890336, y: -0.18470596, z: -0.1024905}
+      rotation: {x: 0.2194195, y: -0.11802122, z: 0.022537593, w: 0.96820354}
+      scale: {x: 0.88232636, y: 0.88232636, z: 0.88232636}
+    - name: polySurface32
+      parentName: pouce
+      position: {x: -0.00047061918, y: -0.0259691, z: 0.000093242}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface33
+      parentName: pouce
+      position: {x: 0.0102341855, y: -0.036922812, z: 0.009846694}
+      rotation: {x: 0.0960387, y: -0.02843456, z: -0.05219439, w: 0.9936014}
+      scale: {x: 1, y: 1, z: 1}
+    - name: jointue_main
+      parentName: droite
+      position: {x: 0.07599967, y: -0.14023213, z: 0.10792624}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface24
+      parentName: jointue_main
+      position: {x: -1.3903012e-10, y: -0.0000000023982483, z: -0.108448796}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: coude
+      parentName: droite
+      position: {x: 0.007818704, y: -0.018333973, z: 0.10792625}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface41
+      parentName: coude
+      position: {x: 0.06569138, y: 0.06276193, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: transform1
+      parentName: coude
+      position: {x: 0.06569138, y: 0.06276193, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: avan_bras
+      parentName: droite
+      position: {x: 0.00021193504, y: -0.0037408255, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface22
+      parentName: avan_bras
+      position: {x: 0.04090769, y: -0.0775484, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: jointure_coude
+      parentName: droite
+      position: {x: -0.0000000047683715, y: 0.0000000047683715, z: 0.107926264}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface35
+      parentName: jointure_coude
+      position: {x: 0.07351009, y: 0.04442795, z: -0.0000000053003633}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: tete
+      parentName: haut_du_corp
+      position: {x: 0.11362073, y: 0.2597793, z: -3.5527136e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Tete
+      parentName: tete
+      position: {x: 0.00403975, y: 0.038250465, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.1569716, y: 1.1569716, z: 1.1569716}
+    - name: group17
+      parentName: Tete
+      position: {x: 4.440892e-18, y: 0.010609768, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.1106225, y: 1.1106225, z: 1.1106225}
+    - name: Tete
+      parentName: group17
+      position: {x: -0.0018544337, y: 0.0032450177, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: yeux
+      parentName: group17
+      position: {x: 0.026746215, y: 0.021504495, z: -0.000000004172325}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.1091346, y: 1.1091346, z: 1.1091346}
+    - name: bassin
+      parentName: idle(Clone)
+      position: {x: -0.07806003, y: 0.39880183, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: jointure_G
+      parentName: idle(Clone)
+      position: {x: -0.07884496, y: 0.3909209, z: 0.04496541}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: jointure_D
+      parentName: idle(Clone)
+      position: {x: -0.07884496, y: 0.3909209, z: -0.04496541}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Jambe_Gauche
+      parentName: idle(Clone)
+      position: {x: -0.07383857, y: 0.3834748, z: 0.058872588}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: jambe_gauche
+      parentName: Jambe_Gauche
+      position: {x: 0.00410416, y: -0.19744463, z: -0.0015862805}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube10
+      parentName: jambe_gauche
+      position: {x: -0.009765493, y: 0.12602319, z: 0.0036372554}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface36
+      parentName: jambe_gauche
+      position: {x: -0.0037756788, y: 0.18708761, z: 0.024964182}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: genoux_G
+      parentName: Jambe_Gauche
+      position: {x: -0.0038493872, y: -0.17247775, z: 0.0036525659}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube12
+      parentName: genoux_G
+      position: {x: 0.020057328, y: -0.2055434, z: 0.0003707424}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCylinder10
+      parentName: genoux_G
+      position: {x: -0.0008300113, y: -0.18265337, z: -0.000034840108}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube11
+      parentName: genoux_G
+      position: {x: -0.0006930026, y: -0.093903854, z: -0.0004590845}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCylinder11
+      parentName: genoux_G
+      position: {x: 0.0000000016858915, y: -0.18279505, z: -0.000034840108}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCylinder8
+      parentName: genoux_G
+      position: {x: -0.00083001464, y: 0.0025304793, z: -0.000034840104}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCylinder9
+      parentName: genoux_G
+      position: {x: 0.000000003883204, y: -0.000000009536743, z: -0.000034840104}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Jambe_Droite
+      parentName: idle(Clone)
+      position: {x: -0.0760737, y: 0.38453338, z: -0.062570594}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: jambe_droite
+      parentName: Jambe_Droite
+      position: {x: 0.006339297, y: -0.19850321, z: 0.0052842856}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube10
+      parentName: jambe_droite
+      position: {x: -0.009765493, y: 0.12602319, z: -0.0036372554}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface37
+      parentName: jambe_droite
+      position: {x: -0.006339302, y: 0.18708761, z: -0.024859473}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: 5.0532154e-16}
+      scale: {x: 1, y: 1, z: 1}
+    - name: genoux_D
+      parentName: Jambe_Droite
+      position: {x: -0.0024442624, y: -0.17353632, z: 0.0005045239}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube12
+      parentName: genoux_D
+      position: {x: 0.020887341, y: -0.2055434, z: -0.0008298254}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCylinder10
+      parentName: genoux_D
+      position: {x: -0, y: -0.18265335, z: -0.000424242}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCylinder11
+      parentName: genoux_D
+      position: {x: 0.0008300113, y: -0.18279502, z: -0.000424242}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube11
+      parentName: genoux_D
+      position: {x: 0.00013700961, y: -0.09390385, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCylinder9
+      parentName: genoux_D
+      position: {x: 0.0008300161, y: 0, z: -0.00042424677}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCylinder8
+      parentName: genoux_D
+      position: {x: -0.0000000047683715, y: 0.0025304793, z: -0.00042424677}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

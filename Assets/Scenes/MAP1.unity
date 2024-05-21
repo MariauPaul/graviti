@@ -15009,6 +15009,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 400.0087, y: 400, z: 59.132034}
   m_Center: {x: 0.00024414062, y: 0, z: 0}
+--- !u!1 &488842947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3654236758073511414, guid: 0dea3bfb7387ba845a778c22b586a5f2, type: 3}
+  m_PrefabInstance: {fileID: 6587777038836458305}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &488979379 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7321000998819253317, guid: 9ba3a7a5db6b7b64f8f0cd565b00492e, type: 3}
@@ -15330,6 +15335,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5337875096310369142, guid: 0dea3bfb7387ba845a778c22b586a5f2, type: 3}
   m_PrefabInstance: {fileID: 6587777038836458305}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &505731527
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488842947}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9a28ec4ba5585f499b8e34d49b7aba3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &507812801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15656,6 +15682,7 @@ MonoBehaviour:
   grabPos: {fileID: 0}
   grabRayCast: {fileID: 0}
   playerMesh: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1001 &508041687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53236,6 +53263,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a5368ee7f98c04b94c710f89273ee1, type: 3}
+--- !u!1 &1732956143 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4303485156401154869, guid: a5b522919b9b3684ba967d108a470891, type: 3}
+  m_PrefabInstance: {fileID: 7864404445532410500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1732956145
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732956143}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9a28ec4ba5585f499b8e34d49b7aba3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1741293707
 GameObject:
   m_ObjectHideFlags: 0
@@ -67940,7 +67993,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5337875096310369142, guid: 0dea3bfb7387ba845a778c22b586a5f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1768018121}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3654236758073511414, guid: 0dea3bfb7387ba845a778c22b586a5f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 505731527}
   m_SourcePrefab: {fileID: 100100000, guid: 0dea3bfb7387ba845a778c22b586a5f2, type: 3}
 --- !u!1001 &7481180817029125594
 PrefabInstance:
@@ -68066,10 +68122,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8813076183869498546, guid: a5b522919b9b3684ba967d108a470891, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1732956145}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4303485156401154869, guid: a5b522919b9b3684ba967d108a470891, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1732956145}
   m_SourcePrefab: {fileID: 100100000, guid: a5b522919b9b3684ba967d108a470891, type: 3}
 --- !u!1001 &8030057678038288410
 PrefabInstance:
