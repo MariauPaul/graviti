@@ -347,27 +347,37 @@ public class PlayerMovement : MonoBehaviour
     public void SetRespawn()
     {
         respawnPos = transform.position;
+      
     }
 
     private void Respawn()
     {
         waitingForDeath = false;
         transform.position = respawnPos;
+        IOSwitchGrav(true);
+        IOMove(true);
+        IOJump(true);
     }
 
     public void Death()
     {
         if (!waitingForDeath)
         {
+            IOSwitchGrav(false);
+            IOMove(false);
+            IOJump(false);
+            animator.SetTrigger("IsDead");
             StartCoroutine(DelayDeath());
         }
+       
     }
 
     IEnumerator DelayDeath()
     {
         waitingForDeath = true;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.2f);
         Respawn();
+
     }
 
     IEnumerator DelayUnGrab()
