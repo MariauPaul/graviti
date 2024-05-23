@@ -25,11 +25,11 @@ public class LazerActivation : MonoBehaviour
  
     private void LazerActif()
     {
-        if (SRC_Button.ButtonIsPush == true)
+        if (SRC_Button.buttonIsPushByCase == true)
         {
             Lazer.SetActive(false);
         }
-        else if (SRC_Button.ButtonIsPush == false)
+        else if (SRC_Button.buttonIsPushByCase == false)
         {
             Lazer.SetActive(true);
         }

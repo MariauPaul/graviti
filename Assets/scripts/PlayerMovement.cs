@@ -86,18 +86,17 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             jumpButtonPressTime = 0;
             Jump();
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetButtonDown("switch grav"))
         {
             SwitchGrav();
-            Debug.Log("Press F");
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetButtonDown("grab"))
         {
             Grab();
         }
@@ -228,7 +227,7 @@ public class PlayerMovement : MonoBehaviour
     {
         jumpButtonPressTime += Time.deltaTime;
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetButtonUp("Jump"))
         {
             jumpCancel = true;
         }
@@ -347,7 +346,6 @@ public class PlayerMovement : MonoBehaviour
     public void SetRespawn()
     {
         respawnPos = transform.position;
-      
     }
 
     private void Respawn()
@@ -369,7 +367,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger("IsDead");
             StartCoroutine(DelayDeath());
         }
-       
     }
 
     IEnumerator DelayDeath()
@@ -377,7 +374,6 @@ public class PlayerMovement : MonoBehaviour
         waitingForDeath = true;
         yield return new WaitForSeconds(1.2f);
         Respawn();
-
     }
 
     IEnumerator DelayUnGrab()
