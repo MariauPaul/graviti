@@ -56,7 +56,25 @@ public class SRC_Button : MonoBehaviour
         }
         if (other.tag == "Attrape" || other.tag == "Player")
         {
+            if (dualButton && redButton)
+            {
+                oneButton = true;
+                if (twoButton)
+                {
+                    Complete.OpeDoor();
+                }
+            }
+            else if (dualButton && greenButton)
+            {
+                twoButton = true;
+                if (oneButton)
+                {
+                    Complete.OpeDoor();
+                }
+            }
+
             Complete.UnlockDoor();
+
             if (Complete.tag == "Jointure")
             {
                 Complete.OpeDoor();
@@ -72,7 +90,8 @@ public class SRC_Button : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player" && !greenButton)
+        //----------------------------- RED BUTTON PLAYER -----------------------------
+        if (other.tag == "Player" && redButton && !dualButton)
         {
             buttonIsPushByPlayer = false;
 
@@ -82,7 +101,8 @@ public class SRC_Button : MonoBehaviour
                 Complete.LockDoor();
             }
         }
-        else if (other.tag == "Attrape" && !greenButton)
+        //----------------------------- RED BUTTON CASE -----------------------------
+        else if (other.tag == "Attrape" && redButton && !dualButton)
         {
             buttonIsPushByCase = false;
 
@@ -92,6 +112,7 @@ public class SRC_Button : MonoBehaviour
                 anim.SetBool("isTrigger", false);
                 Complete.LockDoor();
             }
+        }
         //}
         //if (!didIAmGreen)
         //{
@@ -99,6 +120,27 @@ public class SRC_Button : MonoBehaviour
         //    anim.SetBool("isTrigger", false);
         //    Complete.LockDoor();
         //    buttonIsPushByCase = false;
+
+        if (other.tag == "Player" && redButton && dualButton)
+        {
+            buttonIsPushByPlayer = false;
+
+            if (!buttonIsPushByCase)
+            {
+                anim.SetBool("isTrigger", false);
+                Complete.LockDoor();
+            }
+        }
+        else if (other.tag == "Attrape" && redButton && dualButton)
+        {
+            buttonIsPushByCase = false;
+
+            if (!buttonIsPushByPlayer)
+            {
+                iAmTheCase = null;
+                anim.SetBool("isTrigger", false);
+                Complete.LockDoor();
+            }
         }
     }
 
