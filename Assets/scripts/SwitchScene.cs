@@ -32,6 +32,9 @@ public class SwitchScene : MonoBehaviour
         {
             SceneManager.LoadScene(4);
         }
-
+        if (currentScene.name == "MAP4")
+        {
+            SceneManager.LoadScene(5);
+        }
     }
 }

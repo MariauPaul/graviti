@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
@@ -65,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         goForward = new Vector3(1, 0, 0);
+        SetRespawn();
     }
 
     private void Update()
@@ -327,7 +329,7 @@ public class PlayerMovement : MonoBehaviour
             other.gameObject.SetActive(false);
             SetRespawn();
         }
-        if (other.gameObject.tag == "Death")
+        else if (other.gameObject.tag == "Death")
         {
            Death();
         }
@@ -340,7 +342,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
             rb.drag = 1;
         }
-        else if (collision.gameObject.tag == "Death") StartCoroutine(DelayDeath());
+        else if (collision.gameObject.tag == "Death") Death();
     }
 
     public void SetRespawn()
@@ -350,17 +352,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void Respawn()
     {
-        waitingForDeath = false;
+        Scene activeScene = SceneManager.GetActiveScene();
+        if (activeScene.name == "MAP5")
+        {
+            SCR_Platform.platform.ResetPlatform();
+        }
         transform.position = respawnPos;
         IOSwitchGrav(true);
         IOMove(true);
         IOJump(true);
+        waitingForDeath = false;
+        Debug.Log("tcik");
     }
 
     public void Death()
     {
         if (!waitingForDeath)
         {
+            waitingForDeath = true;
             IOSwitchGrav(false);
             IOMove(false);
             IOJump(false);
@@ -371,7 +380,6 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator DelayDeath()
     {
-        waitingForDeath = true;
         yield return new WaitForSeconds(1.2f);
         Respawn();
     }

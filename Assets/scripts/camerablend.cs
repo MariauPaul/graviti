@@ -44,7 +44,7 @@ public class camerablend : MonoBehaviour
             camRoom.Priority = 2;
             camIsOnPlayer = false;
 
-            TL.Play();
+            //TL.Play();
         }
     }
 
