@@ -7,7 +7,7 @@ using UnityEngine.Playables;
 
 public class camerablend : MonoBehaviour
 {
-    [SerializeField] CinemachineVirtualCamera camRoom;                                              // Room Camera
+    CinemachineVirtualCamera camRoom;                                              // Room Camera
     private CinemachineVirtualCamera camPlayer;                                                     // Player Camera
     private static bool camIsOnPlayer = true;                                                       // Prevent CamGlitch;
 
