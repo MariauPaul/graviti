@@ -361,8 +361,12 @@ public class PlayerMovement : MonoBehaviour
         IOSwitchGrav(true);
         IOMove(true);
         IOJump(true);
+        if (isGravInvert)
+        {
+            Physics.gravity *= -1;
+            isGravInvert = !isGravInvert;
+        }
         waitingForDeath = false;
-        Debug.Log("tcik");
     }
 
     public void Death()
@@ -373,6 +377,10 @@ public class PlayerMovement : MonoBehaviour
             IOSwitchGrav(false);
             IOMove(false);
             IOJump(false);
+            if (handFull)
+            {
+                Grab();
+            }
             animator.SetTrigger("IsDead");
             StartCoroutine(DelayDeath());
         }
