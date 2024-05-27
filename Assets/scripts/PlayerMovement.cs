@@ -111,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             rb.drag = groundDrag;
+            animator.SetBool("JumpCancel", false);
             //if (rb.mass > 1)
             //{
             //    rb.mass = 1;
@@ -155,6 +156,7 @@ public class PlayerMovement : MonoBehaviour
         moveDir = goForward * horizontalInput;
 
         animator.SetBool("IsWalking",!(moveDir.magnitude < deltaMoveDetection) && (moveDir.magnitude > -1f*deltaMoveDetection));
+        animator.SetBool("JumpCancel", rb.velocity.y < 0);
         /*
         if ((moveDir < deltaMoveDetection) && (moveDir > -1f*deltaMoveDetection)){
           animator.SetBool("isWalking",false);
@@ -205,6 +207,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isJumpReady && isGrounded && canJump)
         {
+            animator.SetTrigger("Jump");
             isJumpReady = false;
             jumpCancel = false;
 
@@ -361,6 +364,11 @@ public class PlayerMovement : MonoBehaviour
         IOSwitchGrav(true);
         IOMove(true);
         IOJump(true);
+        if (isGravInvert)
+        {
+            Physics.gravity *= -1;
+            isGravInvert = !isGravInvert;
+        }
         waitingForDeath = false;
         Debug.Log("tcik");
     }
@@ -373,6 +381,10 @@ public class PlayerMovement : MonoBehaviour
             IOSwitchGrav(false);
             IOMove(false);
             IOJump(false);
+            if (handFull)
+            {
+                Grab();
+            }
             animator.SetTrigger("IsDead");
             StartCoroutine(DelayDeath());
         }

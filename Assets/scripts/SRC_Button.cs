@@ -18,28 +18,16 @@ public class SRC_Button : MonoBehaviour
     [SerializeField] private bool redButton;
     [SerializeField] private bool greenButton;
     [SerializeField] private bool dualButton;
+    [SerializeField] private bool sawButton;
+
+    [SerializeField] private bool triggerDoor;
 
     private bool oneButton = false;
     private bool twoButton = false;
 
     void Start()
     {
-        //if (this.tag == "Butoon")
-        //{
-        //    didIAmGreen = false;
-        //}
-
-        //else if (this.tag == "GreenButton")
-        //{
-        //    didIAmGreen = true;
-        //}
-
         anim = GetComponent<Animator>();
-    }
-
-    private void Update()
-    {
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -72,6 +60,14 @@ public class SRC_Button : MonoBehaviour
                     Complete.OpeDoor();
                 }
             }
+            else if (triggerDoor)
+            {
+                Complete.OpeDoor();
+            }
+            else if (greenButton && sawButton)
+            {
+                Saw.saw.StopSaw();
+            }
 
             Complete.UnlockDoor();
 
@@ -99,6 +95,10 @@ public class SRC_Button : MonoBehaviour
             {
                 anim.SetBool("isTrigger", false);
                 Complete.LockDoor();
+                if (triggerDoor)
+                {
+                    Complete.CloseDoor();
+                }
             }
         }
         //----------------------------- RED BUTTON CASE -----------------------------
@@ -111,6 +111,10 @@ public class SRC_Button : MonoBehaviour
                 iAmTheCase = null;
                 anim.SetBool("isTrigger", false);
                 Complete.LockDoor();
+                if (triggerDoor)
+                {
+                    Complete.CloseDoor();
+                }
             }
         }
         //}

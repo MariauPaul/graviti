@@ -112,7 +112,7 @@ MonoBehaviour:
   isGrounded: 0
   deltaMoveDetection: 0
   jumpCd: 0.1
-  jumpHeight: 1
+  jumpHeight: 1.2
   jumpButtonMaxPressTime: 0.3
   maxDrag: 6
   isGravInvert: 0
