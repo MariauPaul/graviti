@@ -12664,7 +12664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 41648159161961757, guid: c4f6435a27191dc4b94533629159c1d5, type: 3}
       propertyPath: m_Size.z
-      value: 11.386974
+      value: 13.00212
       objectReference: {fileID: 0}
     - target: {fileID: 41648159161961757, guid: c4f6435a27191dc4b94533629159c1d5, type: 3}
       propertyPath: m_Center.x
@@ -12676,7 +12676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 41648159161961757, guid: c4f6435a27191dc4b94533629159c1d5, type: 3}
       propertyPath: m_Center.z
-      value: 5.193487
+      value: 4.3859143
       objectReference: {fileID: 0}
     - target: {fileID: 373902915627616779, guid: c4f6435a27191dc4b94533629159c1d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12718,6 +12718,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8300500983591782083, guid: c4f6435a27191dc4b94533629159c1d5, type: 3}
+      propertyPath: Complete
+      value: 
+      objectReference: {fileID: 1417074243}
     - target: {fileID: 9017682560906585302, guid: c4f6435a27191dc4b94533629159c1d5, type: 3}
       propertyPath: m_Name
       value: UnlockDoor

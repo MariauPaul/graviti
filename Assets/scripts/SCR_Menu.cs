@@ -68,7 +68,7 @@ public class SCR_Menu : MonoBehaviour
             switch (selected)
             {
                 case 1:
-                    SceneManager.LoadScene(1);
+                    SceneManager.LoadScene(6);
                     break;
                 case 2:
                     camSetting.Priority = 2;
