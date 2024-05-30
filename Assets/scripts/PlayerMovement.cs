@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float airMultiplier;
     [SerializeField] bool isGrounded;
     [SerializeField] float deltaMoveDetection;
+    //[SerializeField] AudioSource walkingsong;
 
     private Vector3 moveDir;
     private Vector3 currentVel;
@@ -67,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         goForward = new Vector3(1, 0, 0);
         SetRespawn();
+        //walkingsong = GetComponent<AudioSource>();
+        //walkingsong.enabled = false;
     }
 
     private void Update()
@@ -154,9 +157,9 @@ public class PlayerMovement : MonoBehaviour
     private void Movement()
     {
         moveDir = goForward * horizontalInput;
-
         animator.SetBool("IsWalking",!(moveDir.magnitude < deltaMoveDetection) && (moveDir.magnitude > -1f*deltaMoveDetection));
         animator.SetBool("JumpCancel", rb.velocity.y < 0);
+ 
         /*
         if ((moveDir < deltaMoveDetection) && (moveDir > -1f*deltaMoveDetection)){
           animator.SetBool("isWalking",false);
@@ -177,6 +180,7 @@ public class PlayerMovement : MonoBehaviour
             // groun control
             if (isGrounded) rb.AddForce(moveDir.normalized * speed * 70 * rb.mass, ForceMode.Force);
         }
+       
     }
 
     public void IOMove(bool x)
