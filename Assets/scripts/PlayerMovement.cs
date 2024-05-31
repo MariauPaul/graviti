@@ -100,7 +100,8 @@ public class PlayerMovement : MonoBehaviour
             SCR_Platform.platform.ResetPlatform();
         }
         rb.velocity = Vector3.zero;
-        transform.position = respawnPos;
+        rb.MovePosition(respawnPos);
+        //transform.position = respawnPos;
         IOSwitchGrav(true);
         IOMove(true);
         IOJump(true);
@@ -417,7 +418,6 @@ public class PlayerMovement : MonoBehaviour
     public void SetRespawn()
     {
         respawnPos = transform.position;
-        respawnPos.y = respawnPos.y + 0.005f;
     }
 
     
