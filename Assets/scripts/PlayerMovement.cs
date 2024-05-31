@@ -440,13 +440,13 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator DownGravity()
     {
         downgravity.Play();
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(0.5f);
         downgravity.Stop();
     }
     IEnumerator UPGravity()
     {
         upgravity.Play();
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(0.5f);
         upgravity.Stop();
     }
 

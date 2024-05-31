@@ -6,9 +6,11 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     private Animator doorRoom;
+    [SerializeField] Animator rouge;
     private camerablend room;
     private bool isInRoom;
     private bool doorIsLock;
+
 
     // Start is called before the first frame update
     void Start()
@@ -86,7 +88,9 @@ public class OpenDoor : MonoBehaviour
 
     public void OpeDoor()
     {
+        Debug.Log("open");
         doorRoom.SetBool("SomeOneIsThere", true);                   // Animation need exitTime 0/I
+        rouge.SetTrigger("swap");
     }
 
     public void CloseDoor()
