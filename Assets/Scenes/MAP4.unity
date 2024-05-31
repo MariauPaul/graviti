@@ -8506,6 +8506,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1033614294}
+  - {fileID: 1603588077}
   m_Father: {fileID: 1383002357}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &287740781
@@ -8520,7 +8521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64fd86091818f874890166466b19d376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camRoom: {fileID: 0}
+  camRoom: {fileID: 1033614295}
   timeBeforeDestroy: 0
   EnterDoor: {fileID: 1916772949}
   ExitDoor: {fileID: 2074948175}
@@ -9535,7 +9536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8396942277703056249, guid: df5464ac3bda8f84fa0c35dbc04b1efe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.33469
+      value: -31.335144
       objectReference: {fileID: 0}
     - target: {fileID: 8396942277703056249, guid: df5464ac3bda8f84fa0c35dbc04b1efe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -31890,6 +31891,59 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1603588076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1603588077}
+  - component: {fileID: 1603588078}
+  m_Layer: 0
+  m_Name: respawn
+  m_TagString: CheckPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1603588077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603588076}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.74, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 287740780}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1603588078
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603588076}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 4.8600917, z: 3.7393475}
+  m_Center: {x: 0, y: 1.361686, z: -0.83496666}
 --- !u!1 &1608580837
 GameObject:
   m_ObjectHideFlags: 0
@@ -32423,7 +32477,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3837902576821853527, guid: cbaa50252eb2a914a938f9b5df2d9a08, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.33469
+      value: -31.335144
       objectReference: {fileID: 0}
     - target: {fileID: 3837902576821853527, guid: cbaa50252eb2a914a938f9b5df2d9a08, type: 3}
       propertyPath: m_LocalPosition.y

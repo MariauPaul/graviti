@@ -41,6 +41,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Gravity")]
     [SerializeField] bool isGravInvert = false;
     [SerializeField] float switchGravCd;
+    [SerializeField] ParticleSystem upgravity;
+    [SerializeField] ParticleSystem downgravity;
+    bool particleswitch = false;
 
     private bool canSwitchGrav = true;
 
@@ -65,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        downgravity.Stop();
+        upgravity.Stop();
         rb = GetComponent<Rigidbody>();
         goForward = new Vector3(1, 0, 0);
         SetRespawn();
@@ -79,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
         Grounded();
         CheckJumpCancel();
         Rotate();
+        AdminDebug();
     }
     private void FixedUpdate()
     {
@@ -86,7 +92,45 @@ public class PlayerMovement : MonoBehaviour
         SpeedVel();
         JumpCancel();
     }
+    private void Respawn()
+    {
+        Scene activeScene = SceneManager.GetActiveScene();
+        if (activeScene.name == "MAP5")
+        {
+            SCR_Platform.platform.ResetPlatform();
+        }
+        rb.velocity = Vector3.zero;
+        transform.position = respawnPos;
+        IOSwitchGrav(true);
+        IOMove(true);
+        IOJump(true);
 
+        waitingForDeath = false;
+        Debug.Log("Tick");
+    }
+    public void Death()
+    {
+        if (!waitingForDeath)
+        {
+            waitingForDeath = true;
+            if (isGravInvert)
+            {
+                Physics.gravity *= -1;
+                isGravInvert = !isGravInvert;
+            }
+            StartCoroutine(DelayDeath());
+            
+            IOSwitchGrav(false);
+            IOMove(false);
+            IOJump(false);
+            if (handFull)
+            {
+                Grab();
+            }
+            animator.SetTrigger("IsDead");
+
+        }
+    }
     private void GetKey()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -100,10 +144,19 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("switch grav"))
         {
             SwitchGrav();
+            ParticleActivation();
         }
         if (Input.GetButtonDown("grab"))
         {
             Grab();
+        }
+        if (Input.GetButtonDown("switch grav") && isGrounded)
+        {
+            particleswitch = true;
+        }
+        else
+        {
+            particleswitch = false;
         }
     }
 
@@ -115,10 +168,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.drag = groundDrag;
             animator.SetBool("JumpCancel", false);
-            //if (rb.mass > 1)
-            //{
-            //    rb.mass = 1;
-            //}
         }
         else
         {
@@ -126,7 +175,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.drag = Mathf.MoveTowards(rb.drag, maxDrag * -1, 0.15f);
             }
-            else if(isGravInvert && rb.velocity.y > 0.01)
+            else if (isGravInvert && rb.velocity.y > 0.01)
             {
                 rb.drag = Mathf.MoveTowards(rb.drag, maxDrag * -1, 0.15f);
             }
@@ -150,6 +199,18 @@ public class PlayerMovement : MonoBehaviour
         else if (isGravInvert && isFlip && playerMesh.transform.rotation.z != 1)
         {
             playerMesh.transform.localRotation = Quaternion.Euler(0, 0, 180);
+        }
+    }
+
+    private void ParticleActivation()
+    {
+        if (isGravInvert)
+        {
+            StartCoroutine(UPGravity());
+        }
+        else if (!isGravInvert)
+        {
+            StartCoroutine(DownGravity());
         }
     }
 
@@ -277,6 +338,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
     public void IOSwitchGrav(bool x)
     {
         if (!x)
@@ -355,44 +417,12 @@ public class PlayerMovement : MonoBehaviour
     public void SetRespawn()
     {
         respawnPos = transform.position;
+        respawnPos.y = respawnPos.y + 0.005f;
     }
 
-    private void Respawn()
-    {
-        Scene activeScene = SceneManager.GetActiveScene();
-        if (activeScene.name == "MAP5")
-        {
-            SCR_Platform.platform.ResetPlatform();
-        }
-        transform.position = respawnPos;
-        IOSwitchGrav(true);
-        IOMove(true);
-        IOJump(true);
-        if (isGravInvert)
-        {
-            Physics.gravity *= -1;
-            isGravInvert = !isGravInvert;
-        }
-        waitingForDeath = false;
-        Debug.Log("tcik");
-    }
+    
 
-    public void Death()
-    {
-        if (!waitingForDeath)
-        {
-            waitingForDeath = true;
-            IOSwitchGrav(false);
-            IOMove(false);
-            IOJump(false);
-            if (handFull)
-            {
-                Grab();
-            }
-            animator.SetTrigger("IsDead");
-            StartCoroutine(DelayDeath());
-        }
-    }
+   
 
     IEnumerator DelayDeath()
     {
@@ -405,5 +435,53 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         itemGrab.GetComponent<Collider>().isTrigger = false;
         itemGrab = null;
+    }
+
+    IEnumerator DownGravity()
+    {
+        downgravity.Play();
+        yield return new WaitForSeconds(1.2f);
+        downgravity.Stop();
+    }
+    IEnumerator UPGravity()
+    {
+        upgravity.Play();
+        yield return new WaitForSeconds(1.2f);
+        upgravity.Stop();
+    }
+
+    void AdminDebug()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad0))
+        {
+            SceneManager.LoadScene(0);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad1)){
+            SceneManager.LoadScene(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            SceneManager.LoadScene(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            SceneManager.LoadScene(3);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            SceneManager.LoadScene(4);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            SceneManager.LoadScene(5);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad6))
+        {
+            SceneManager.LoadScene(6);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad7))
+        {
+            SceneManager.LoadScene(7);
+        }
     }
 }

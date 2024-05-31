@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cinematique Intro.unity
     guid: 916363bdd89deee4fb5382ac1e468693
+  - enabled: 1
+    path: Assets/Scenes/Cinematique Fin.unity
+    guid: d4d1ec2301799944bac4063c58f7ac02
   m_configObjects: {}
